@@ -80,14 +80,18 @@ export function resetModal() {
   const verseSelect = document.getElementById("verseSelect");
   const selectedText = document.getElementById("selectedText");
   const additionalText = document.getElementById("additionalText");
+  const goToVerseButton = document.getElementById('goToVerseButton');
 
   bookSelect.selectedIndex = 0;
-  chapterSelect.selectedIndex = -1;
-  verseSelect.selectedIndex = -1;
-
+  chapterSelect.innerHTML = "";
+  verseSelect.innerHTML = "";
   selectedText.textContent = "";
   additionalText.textContent = "";
+
+  goToVerseButton.disabled = true; // Деактивируем кнопку
+
 }
+
 
 
 // Обрабатывает выделение текста пользователем и отображает его в модальном окне

@@ -195,3 +195,23 @@ document.getElementById('goToVerseButton').addEventListener('click', () => {
   document.getElementById('additionalText').innerHTML = `${reference}<br> ${verseText}`;
 });
 
+
+// Активация кнопки после выбора всех опций
+function checkSelections() {
+  const bookSelect = document.getElementById('bookSelect');
+  const chapterSelect = document.getElementById('chapterSelect');
+  const verseSelect = document.getElementById('verseSelect');
+  const goToVerseButton = document.getElementById('goToVerseButton');
+
+  // Проверяем, выбраны ли все опции
+  if (bookSelect.value && chapterSelect.value && verseSelect.selectedOptions.length > 0) {
+    goToVerseButton.disabled = false; // Активируем кнопку
+  } else {
+    goToVerseButton.disabled = true; // Деактивируем кнопку
+  }
+}
+
+document.getElementById('bookSelect').addEventListener('change', checkSelections);
+document.getElementById('chapterSelect').addEventListener('change', checkSelections);
+document.getElementById('verseSelect').addEventListener('change', checkSelections);
+
